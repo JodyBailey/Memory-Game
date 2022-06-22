@@ -1,0 +1,6 @@
+.board-container {
+  width: max-content;
+  height: max-content;
+  border: 1rem solid blue;
+  margin: auto;
+}
