@@ -1,21 +1,9 @@
-import { useState } from "react";
-import { images } from "../imagesArr";
 import "../styles/card.css";
 
-const getRandomImage = () => {
-  return images[Math.floor(Math.random() * images.length)];
-};
-
-const Card = () => {
-  const [randomImage, setRandomImage] = useState(getRandomImage());
-
-  const randomizeImage = () => {
-    setRandomImage(getRandomImage());
-  };
-
+const Card = ({ image }) => {
   return (
     <div className="card">
-      <img src={randomImage} />
+      <img src={image} alt={image.slice(14, image.indexOf("."))} />
     </div>
   );
 };
