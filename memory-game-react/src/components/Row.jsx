@@ -13,7 +13,3 @@ const Row = ({ rowImages }) => {
 };
 
 export default Row;
-
-// {/* {rowImages.forEach((image) => (
-//   <Card image={image} />
-// ))} */}

@@ -1,4 +1,25 @@
-import { images } from "../../imagesArr";
+const git = require("../../images/git.png");
+const cSharp = require("../../images/cSharplogo.png");
+const cPlusPlus = require("../../images/c++logo.png");
+const docker = require("../../images/docker.png");
+const react = require("../../images/react.png");
+const mongoDB = require("../../images/mongodb.png");
+const redux = require("../../images/redux.png");
+const python = require("../../images/python.png");
+const angular = require("../../images/angular.png");
+const { v4: uuidv4 } = require("uuid");
+
+const images = [
+  git,
+  cSharp,
+  cPlusPlus,
+  docker,
+  react,
+  redux,
+  mongoDB,
+  python,
+  angular,
+];
 
 const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
@@ -31,7 +52,12 @@ const generateImagesRows = (totalCards, cardsPerRow) => {
 
   const randomizedImagesArr = randomizeElements(imagesArr);
   for (let i = 0; i < randomizedImagesArr.length; i++) {
-    row.push(randomizedImagesArr[i]);
+    row.push({
+      id: uuidv4(),
+      image: randomizedImagesArr[i],
+      flipped: false,
+      locked: false,
+    });
     if (row.length === cardsPerRow) {
       imagesRows.push(row);
       row = [];
