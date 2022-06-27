@@ -1,10 +1,12 @@
 import Board from "./components/Board";
+import PlayAgainButton from "./components/PlayAgainButton";
 
 function App() {
   return (
-    <div>
+    <>
       <Board />
-    </div>
+      <PlayAgainButton />
+    </>
   );
 }
 

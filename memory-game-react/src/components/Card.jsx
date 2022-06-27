@@ -1,29 +1,24 @@
-import { useDispatch, useSelector } from "react-redux";
-import { flipCard, lockCards } from "../features/shuffleCards/actions";
+import { useDispatch } from "react-redux";
+import { handleCards } from "../features/cards/operations";
 import "../styles/card.css";
 
 const Card = ({ image }) => {
   const dispatch = useDispatch();
-  const flippedImages = useSelector((state) => {
-    const flattened = state.flat();
-    const flipped = flattened.filter((element) => {
-      return element.flipped;
-    });
-    return flipped;
-  });
 
   return (
     <div
       className="card"
       onClick={() => {
-        dispatch(flipCard(image));
-        console.log(flippedImages.length);
+        dispatch(handleCards(image));
       }}
     >
       <img
         src={image.image}
         alt={image.image.slice(14, image.image.indexOf("."))}
-        style={{ display: image.flipped ? "block" : "none" }}
+        style={{
+          display: image.flipped || image.matched ? "block" : "none",
+          opacity: image.matched ? 0.6 : 1,
+        }}
       />
     </div>
   );

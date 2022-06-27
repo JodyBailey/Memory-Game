@@ -3,13 +3,15 @@ import {
   SHUFFLE_CARDS,
   LOCK_CARDS,
   UNLOCK_UNMATCHED_CARDS,
+  MATCH_CARDS,
+  UNFLIP_CARDS,
 } from "./types";
-import { generateImagesRows } from "./utils";
+import { generateImagesRows } from "./selectors";
 import clone from "clone";
 
 const initialState = generateImagesRows(12, 4);
 
-const shuffleReducer = (state = initialState, action) => {
+const cardReducer = (state = initialState, action) => {
   switch (action.type) {
     case SHUFFLE_CARDS: {
       return generateImagesRows(
@@ -18,16 +20,30 @@ const shuffleReducer = (state = initialState, action) => {
       );
     }
     case FLIP_CARD: {
-      if (action.payload.image.locked) return state;
-
       const newState = clone(state);
 
       newState.forEach((row) => {
         row.forEach((card) => {
-          if (card.id === action.payload.image.id) {
+          if (card.id === action.payload) {
             card.flipped = true;
             return;
           }
+        });
+      });
+
+      return newState;
+    }
+    case UNFLIP_CARDS: {
+      const newState = clone(state);
+
+      action.payload.forEach((id) => {
+        newState.forEach((row) => {
+          row.forEach((card) => {
+            if (card.id === id) {
+              card.flipped = false;
+              return;
+            }
+          });
         });
       });
 
@@ -44,6 +60,22 @@ const shuffleReducer = (state = initialState, action) => {
 
       return newState;
     }
+    case MATCH_CARDS: {
+      const newState = clone(state);
+
+      action.payload.forEach((id) => {
+        newState.forEach((row) => {
+          row.forEach((card) => {
+            if (card.id === id) {
+              card.matched = true;
+              return;
+            }
+          });
+        });
+      });
+
+      return newState;
+    }
     case UNLOCK_UNMATCHED_CARDS: {
       const newState = clone(state);
 
@@ -53,6 +85,8 @@ const shuffleReducer = (state = initialState, action) => {
           card.locked = false;
         });
       });
+
+      return newState;
     }
     default: {
       return state;
@@ -60,4 +94,4 @@ const shuffleReducer = (state = initialState, action) => {
   }
 };
 
-export { shuffleReducer };
+export { cardReducer };

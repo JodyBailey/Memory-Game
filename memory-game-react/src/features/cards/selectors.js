@@ -57,6 +57,7 @@ const generateImagesRows = (totalCards, cardsPerRow) => {
       image: randomizedImagesArr[i],
       flipped: false,
       locked: false,
+      matched: false,
     });
     if (row.length === cardsPerRow) {
       imagesRows.push(row);
