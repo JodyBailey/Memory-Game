@@ -1,5 +1,5 @@
-import Board from "./components/Board";
-import PlayAgainButton from "./components/PlayAgainButton";
+import Board from "./components/board/Board";
+import PlayAgainButton from "./components/playAgainButton/PlayAgainButton";
 
 function App() {
   return (

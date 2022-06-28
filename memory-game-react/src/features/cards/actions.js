@@ -1,52 +1,46 @@
-import {
-  SHUFFLE_CARDS,
-  FLIP_CARD,
-  LOCK_CARDS,
-  UNLOCK_UNMATCHED_CARDS,
-  MATCH_CARDS,
-  UNFLIP_CARDS,
-} from "./types";
+import { cardTypes } from "./types";
 
-const shuffleCards = (totalCards, cardsPerRow) => {
+const shuffleCards = (totalCards, cardsPerRow, images) => {
   return {
-    type: SHUFFLE_CARDS,
+    type: cardTypes.SHUFFLE_CARDS,
     payload: {
       totalCards,
       cardsPerRow,
+      images,
     },
   };
 };
 
 const flipCard = (cardId) => {
   return {
-    type: FLIP_CARD,
+    type: cardTypes.FLIP_CARD,
     payload: cardId,
   };
 };
 
 const unflipCards = (...cardIds) => {
   return {
-    type: UNFLIP_CARDS,
+    type: cardTypes.UNFLIP_CARDS,
     payload: cardIds,
   };
 };
 
 const lockCards = () => {
   return {
-    type: LOCK_CARDS,
+    type: cardTypes.LOCK_CARDS,
   };
 };
 
 const matchCards = (...cardIds) => {
   return {
-    type: MATCH_CARDS,
+    type: cardTypes.MATCH_CARDS,
     payload: cardIds,
   };
 };
 
 const unlockUnmatchedCards = (matchedCards) => {
   return {
-    type: UNLOCK_UNMATCHED_CARDS,
+    type: cardTypes.UNLOCK_UNMATCHED_CARDS,
     payload: matchedCards,
   };
 };

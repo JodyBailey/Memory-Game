@@ -1,25 +1,12 @@
-const git = require("../../images/git.png");
-const cSharp = require("../../images/cSharplogo.png");
 const cPlusPlus = require("../../images/c++logo.png");
 const docker = require("../../images/docker.png");
-const react = require("../../images/react.png");
 const mongoDB = require("../../images/mongodb.png");
 const redux = require("../../images/redux.png");
 const python = require("../../images/python.png");
 const angular = require("../../images/angular.png");
 const { v4: uuidv4 } = require("uuid");
 
-const images = [
-  git,
-  cSharp,
-  cPlusPlus,
-  docker,
-  react,
-  redux,
-  mongoDB,
-  python,
-  angular,
-];
+const images = [cPlusPlus, docker, redux, mongoDB, python, angular];
 
 const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
@@ -38,7 +25,7 @@ const randomizeElements = (array) => {
   return randomizedArray;
 };
 
-const generateImagesRows = (totalCards, cardsPerRow) => {
+const generateImagesRows = (totalCards, cardsPerRow, images) => {
   const imagesArr = [];
   const imagesRows = [];
   let row = [];
@@ -68,4 +55,4 @@ const generateImagesRows = (totalCards, cardsPerRow) => {
   return imagesRows;
 };
 
-export { generateImagesRows };
+export { generateImagesRows, images };

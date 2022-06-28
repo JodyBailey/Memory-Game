@@ -1,25 +1,19 @@
-import {
-  FLIP_CARD,
-  SHUFFLE_CARDS,
-  LOCK_CARDS,
-  UNLOCK_UNMATCHED_CARDS,
-  MATCH_CARDS,
-  UNFLIP_CARDS,
-} from "./types";
-import { generateImagesRows } from "./selectors";
+import { cardTypes } from "./types";
+import { generateImagesRows, images } from "./selectors";
 import clone from "clone";
 
-const initialState = generateImagesRows(12, 4);
+const initialState = generateImagesRows(12, 4, images);
 
 const cardReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SHUFFLE_CARDS: {
+    case cardTypes.SHUFFLE_CARDS: {
       return generateImagesRows(
         action.payload.totalCards,
-        action.payload.cardsPerRow
+        action.payload.cardsPerRow,
+        action.payload.images
       );
     }
-    case FLIP_CARD: {
+    case cardTypes.FLIP_CARD: {
       const newState = clone(state);
 
       newState.forEach((row) => {
@@ -33,7 +27,7 @@ const cardReducer = (state = initialState, action) => {
 
       return newState;
     }
-    case UNFLIP_CARDS: {
+    case cardTypes.UNFLIP_CARDS: {
       const newState = clone(state);
 
       action.payload.forEach((id) => {
@@ -49,7 +43,7 @@ const cardReducer = (state = initialState, action) => {
 
       return newState;
     }
-    case LOCK_CARDS: {
+    case cardTypes.LOCK_CARDS: {
       const newState = clone(state);
 
       newState.forEach((row) => {
@@ -60,7 +54,7 @@ const cardReducer = (state = initialState, action) => {
 
       return newState;
     }
-    case MATCH_CARDS: {
+    case cardTypes.MATCH_CARDS: {
       const newState = clone(state);
 
       action.payload.forEach((id) => {
@@ -76,7 +70,7 @@ const cardReducer = (state = initialState, action) => {
 
       return newState;
     }
-    case UNLOCK_UNMATCHED_CARDS: {
+    case cardTypes.UNLOCK_UNMATCHED_CARDS: {
       const newState = clone(state);
 
       newState.forEach((row) => {
