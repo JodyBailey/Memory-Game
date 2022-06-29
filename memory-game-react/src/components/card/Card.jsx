@@ -11,7 +11,6 @@ const Card = ({ card }) => {
       onClick={(e) => {
         dispatch(handleCards(card));
       }}
-      role="img"
     >
       <img
         src={card.image}

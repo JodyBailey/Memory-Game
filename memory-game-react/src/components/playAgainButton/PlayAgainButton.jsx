@@ -13,6 +13,7 @@ const PlayAgainButton = () => {
     <div
       className="play-again-container"
       style={{ display: unmatchedCards.length === 0 ? "flex" : "none" }}
+      data-testid="play-again-btn-container"
     >
       <button
         className="play-again-btn"
