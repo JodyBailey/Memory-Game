@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { shuffleCards } from "../../features/cards/actions";
+import { shuffleCards } from "../../features/cards/index";
 import { images } from "../../features/cards/selectors";
 import "../../styles/playAgainButton.css";
 
@@ -13,7 +13,6 @@ const PlayAgainButton = () => {
     <div
       className="play-again-container"
       style={{ display: unmatchedCards.length === 0 ? "flex" : "none" }}
-      role="button"
     >
       <button
         className="play-again-btn"

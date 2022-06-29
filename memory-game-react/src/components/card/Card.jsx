@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { handleCards } from "../../features/cards/operations";
+import { handleCards } from "../../features/cards/index";
 import "../../styles/card.css";
 
 const Card = ({ card }) => {

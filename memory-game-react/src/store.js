@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { cardReducer } from "./features/cards/reducer";
+import cardReducer from "./features/cards/index";
 
 const store = configureStore({
   reducer: cardReducer,
