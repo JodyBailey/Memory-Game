@@ -4,7 +4,7 @@
   border: 1rem solid black;
   background-image: linear-gradient(
     to bottom,
-    rgb(0, 112, 240),
+    rgb(100, 112, 240),
     rgba(0, 0, 0, 0.842)
   );
   margin: auto;
