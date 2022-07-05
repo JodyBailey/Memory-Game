@@ -1,0 +1,25 @@
+.play-again-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.play-again-btn {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 10rem;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 0.2rem 0.6rem;
+  transition: 100ms ease-in-out;
+  color: rgb(0, 112, 240);
+  background-color: white;
+}
+
+.play-again-btn:hover {
+  transform: scale(1.05);
+  color: white;
+  background-color: rgb(0, 112, 240);
+}
