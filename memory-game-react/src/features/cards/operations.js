@@ -15,7 +15,7 @@ const handleCards = (image) => {
     const matchedCards = [];
 
     getState()
-      .flat()
+      .cards.flat()
       .forEach((card) => {
         if (card.flipped) {
           flippedCards.push(card);

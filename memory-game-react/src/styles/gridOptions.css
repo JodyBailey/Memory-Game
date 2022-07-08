@@ -1,0 +1,26 @@
+.grid-options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 50rem;
+  margin: 1rem auto;
+  justify-content: center;
+  gap: 1rem;
+  background-color: burlywood;
+}
+
+.grid-option {
+  text-align: center;
+  color: rgb(0, 112, 240);
+  border: 5px solid black;
+  transition: 200ms ease-in-out;
+}
+
+.grid-option:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(0, 112, 240);
+}
+
+.size-heading {
+  text-align: center;
+}

@@ -1,13 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { shuffleCards } from "../../features/cards/index";
-import { images } from "../../features/cards/selectors";
+import { displayOptions } from "../../features/gridOptions/index";
 import "../../styles/playAgainButton.css";
 
 const PlayAgainButton = () => {
   const dispatch = useDispatch();
-  const unmatchedCards = useSelector((state) =>
-    state.flat().filter((card) => !card.matched)
-  );
+  const unmatchedCards = useSelector((state) => {
+    if (Object.keys(state.cards).length > 0) {
+      return state.cards.flat().filter((card) => !card.matched);
+    }
+
+    return [null];
+  });
 
   return (
     <div
@@ -18,7 +21,7 @@ const PlayAgainButton = () => {
       <button
         className="play-again-btn"
         onClick={() => {
-          dispatch(shuffleCards(12, 4, images));
+          dispatch(displayOptions());
         }}
       >
         Play Again

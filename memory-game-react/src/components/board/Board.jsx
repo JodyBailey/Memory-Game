@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Board = () => {
   const newRows = useSelector((state) => {
-    return state;
+    return state.cards;
   });
 
   return (

@@ -13,13 +13,12 @@
   border: 5px solid black;
   border-radius: 10px;
   padding: 0.2rem 0.6rem;
-  transition: 100ms ease-in-out;
+  transition: 200ms ease-in-out;
   color: rgb(0, 112, 240);
   background-color: white;
 }
 
 .play-again-btn:hover {
-  transform: scale(1.05);
   color: white;
   background-color: rgb(0, 112, 240);
 }
