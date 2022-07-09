@@ -1,158 +1,162 @@
-// import { act } from "react-dom/test-utils";
-// import App from "./App";
-// import { render, screen } from "./test-utils";
+import { act } from "react-dom/test-utils";
+import App from "./App";
+import { render, screen } from "./test-utils";
 
-// describe("The App", () => {
-//   test("should contain 3 rows, 12 image cards, a board container and a play again button", () => {
-//     render(<App />);
+describe("The App", () => {
+  test("should initially start with the grid container with four grid options", () => {
+    render(<App />);
 
-//     const rowDivContainers = screen.getAllByTestId("row-div");
-//     const boardDivContainer = screen.getByTestId("board-div");
-//     const playAgainButton = screen.getByText(/play again/i);
-//     const imageElements = screen.getAllByRole("img", { hidden: true });
+    const gridContainer = screen.getByTestId("grid-options-container");
 
-//     expect(boardDivContainer).toBeInTheDocument();
-//     expect(playAgainButton).toBeInTheDocument();
-//     expect(rowDivContainers.length).toBe(3);
-//     expect(imageElements.length).toBe(12);
+    expect(gridContainer).toBeInTheDocument();
+    expect(gridContainer.childElementCount).toBe(4);
+  });
 
-//     screen.debug();
-//   });
+  test("should load a 4x3 board if you click the 4x3 grid option", () => {
+    render(<App />);
 
-//   test("should display two images if you click on two cards and then keep them displayed if they are the same", () => {
-//     render(<App />);
+    const gridContainer = screen.getByTestId("grid-options-container");
+    const fourByThreeOption = gridContainer.lastChild;
 
-//     let imageElements;
-//     let firstReduxCard;
-//     let secondReduxCard;
+    expect(fourByThreeOption).toBeInTheDocument();
 
-//     const updateElements = () => {
-//       imageElements = screen.getAllByAltText("redux");
-//       firstReduxCard = imageElements[0];
-//       secondReduxCard = imageElements[1];
-//     };
+    act(() => {
+      fourByThreeOption.click();
+    });
 
-//     updateElements();
+    const boardContainer = screen.getByTestId("board-div");
+    expect(boardContainer).toBeInTheDocument();
+    expect(boardContainer.childElementCount).toBe(3);
+  });
 
-//     expect(firstReduxCard.style.display).toBe("none");
-//     expect(secondReduxCard.style.display).toBe("none");
+  test("should display two images if you click on two cards and then keep them displayed if they are the same", () => {
+    render(<App />);
 
-//     act(() => {
-//       firstReduxCard.click();
-//       secondReduxCard.click();
-//     });
+    let imageElements;
+    let firstReduxCard;
+    let secondReduxCard;
 
-//     updateElements();
+    const updateElements = () => {
+      imageElements = screen.getAllByAltText("redux");
+      firstReduxCard = imageElements[0];
+      secondReduxCard = imageElements[1];
+    };
 
-//     expect(firstReduxCard.style.display).toBe("block");
-//     expect(secondReduxCard.style.display).toBe("block");
-//   });
+    updateElements();
 
-//   test("should display two images if you click on the card and wait a second and hide them again after the timer runs if the images were not the same", () => {
-//     jest.useFakeTimers();
+    expect(firstReduxCard.style.display).toBe("none");
+    expect(secondReduxCard.style.display).toBe("none");
 
-//     render(<App />);
+    act(() => {
+      firstReduxCard.click();
+      secondReduxCard.click();
+    });
 
-//     let angularCards;
-//     let pythonCards;
-//     let angularCard;
-//     let pythonCard;
+    updateElements();
 
-//     const updateElements = () => {
-//       angularCards = screen.getAllByAltText("angular");
-//       pythonCards = screen.getAllByAltText("python");
-//       angularCard = angularCards[0];
-//       pythonCard = pythonCards[0];
-//     };
+    expect(firstReduxCard.style.display).toBe("block");
+    expect(secondReduxCard.style.display).toBe("block");
+  });
 
-//     updateElements();
+  test("should display two images if you click on the card and wait a second and hide them again after the timer runs if the images were not the same", () => {
+    jest.useFakeTimers();
 
-//     expect(angularCard.style.display).toBe("none");
-//     expect(pythonCard.style.display).toBe("none");
+    render(<App />);
 
-//     act(() => {
-//       angularCard.click();
-//       pythonCard.click();
-//     });
+    let angularCards;
+    let pythonCards;
+    let angularCard;
+    let pythonCard;
 
-//     updateElements();
+    const updateElements = () => {
+      angularCards = screen.getAllByAltText("angular");
+      pythonCards = screen.getAllByAltText("python");
+      angularCard = angularCards[0];
+      pythonCard = pythonCards[0];
+    };
 
-//     expect(angularCard.style.display).toBe("block");
-//     expect(pythonCard.style.display).toBe("block");
+    updateElements();
 
-//     act(() => {
-//       jest.runAllTimers();
-//     });
+    expect(angularCard.style.display).toBe("none");
+    expect(pythonCard.style.display).toBe("none");
 
-//     updateElements();
+    act(() => {
+      angularCard.click();
+      pythonCard.click();
+    });
 
-//     expect(angularCard.style.display).toBe("none");
-//     expect(pythonCard.style.display).toBe("none");
-//   });
+    updateElements();
 
-//   test("should display the play again button once all cards are matched", () => {
-//     render(<App />);
+    expect(angularCard.style.display).toBe("block");
+    expect(pythonCard.style.display).toBe("block");
 
-//     let angularCards;
-//     let pythonCards;
-//     let mongodbCards;
-//     let dockerCards;
-//     let cPlusPlusCards;
-//     let cardsArray;
+    act(() => {
+      jest.runAllTimers();
+    });
 
-//     const updateElements = () => {
-//       angularCards = screen.getAllByAltText("angular");
-//       pythonCards = screen.getAllByAltText("python");
-//       mongodbCards = screen.getAllByAltText("mongodb");
-//       dockerCards = screen.getAllByAltText("docker");
-//       cPlusPlusCards = screen.getAllByAltText("c++logo");
+    updateElements();
 
-//       cardsArray = [
-//         angularCards,
-//         pythonCards,
-//         mongodbCards,
-//         dockerCards,
-//         cPlusPlusCards,
-//       ].flat();
-//     };
+    expect(angularCard.style.display).toBe("none");
+    expect(pythonCard.style.display).toBe("none");
+  });
 
-//     updateElements();
+  test("should display the play again button once all cards are matched", () => {
+    render(<App />);
 
-//     cardsArray.forEach((card) => expect(card.style.display).toBe("none"));
+    let angularCards;
+    let pythonCards;
+    let mongodbCards;
+    let dockerCards;
+    let cPlusPlusCards;
+    let cardsArray;
 
-//     act(() => {
-//       cardsArray.forEach((card) => card.click());
-//     });
+    const updateElements = () => {
+      angularCards = screen.getAllByAltText("angular");
+      pythonCards = screen.getAllByAltText("python");
+      mongodbCards = screen.getAllByAltText("mongodb");
+      dockerCards = screen.getAllByAltText("docker");
+      cPlusPlusCards = screen.getAllByAltText("c++logo");
 
-//     updateElements();
+      cardsArray = [
+        angularCards,
+        pythonCards,
+        mongodbCards,
+        dockerCards,
+        cPlusPlusCards,
+      ].flat();
+    };
 
-//     cardsArray.forEach((card) => expect(card.style.display).toBe("block"));
+    updateElements();
 
-//     const playAgainContainer = screen.getByTestId("play-again-btn-container");
+    cardsArray.forEach((card) => expect(card.style.display).toBe("none"));
 
-//     expect(playAgainContainer.style.display).toBe("flex");
-//   });
+    act(() => {
+      cardsArray.forEach((card) => card.click());
+    });
 
-//   test("should reset the game when the play again button is clicked", () => {
-//     render(<App />);
+    updateElements();
 
-//     let allImages;
-//     const playAgainButton = screen.getByText(/play again/i);
+    cardsArray.forEach((card) => expect(card.style.display).toBe("block"));
 
-//     const updateElements = () => {
-//       allImages = screen.getAllByRole("img", { hidden: true });
-//     };
+    const playAgainContainer = screen.getByTestId("play-again-btn-container");
 
-//     updateElements();
+    expect(playAgainContainer.style.display).toBe("flex");
+  });
 
-//     allImages.forEach((image) => expect(image.style.display).toBe("block"));
+  test("should hide the biard and bring you back to the grid options", () => {
+    render(<App />);
 
-//     act(() => {
-//       playAgainButton.click();
-//     });
+    let allImages = screen.getAllByRole("img", { hidden: true });
+    const playAgainButton = screen.getByText(/play again/i);
 
-//     updateElements();
+    allImages.forEach((image) => expect(image.style.display).toBe("block"));
 
-//     allImages.forEach((image) => expect(image.style.display).toBe("none"));
-//   });
-// });
+    act(() => {
+      playAgainButton.click();
+    });
+
+    const gridContainer = screen.getByTestId("grid-options-container");
+
+    expect(gridContainer).toBeInTheDocument();
+  });
+});
