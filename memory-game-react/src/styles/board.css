@@ -2,10 +2,6 @@
   width: max-content;
   height: max-content;
   border: 1rem solid black;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(100, 112, 240),
-    rgba(0, 0, 0, 0.842)
-  );
+  background-color: rgba(0, 112, 240, 0.753);
   margin: auto;
 }
