@@ -20,12 +20,14 @@
   padding: 1rem;
   font-size: 2rem;
   color: rgb(0, 112, 240);
+  transition: 100ms;
 }
 
 .grid-option:hover {
   cursor: pointer;
   color: white;
   background-color: rgb(0, 112, 240);
+  transform: scale(1.05);
 }
 
 .size-heading {
