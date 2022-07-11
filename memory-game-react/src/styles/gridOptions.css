@@ -1,6 +1,7 @@
 .grid-options-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  border: 2px solid rgb(36, 36, 36);
   max-width: 30rem;
   padding: 2rem;
   margin: 1rem auto;
@@ -12,7 +13,6 @@
 
 .grid-option {
   text-align: center;
-  border: 5px solid rgb(0, 0, 0);
   font-weight: 600;
   border-radius: 10px;
   background-color: white;
@@ -42,6 +42,10 @@
   cursor: pointer;
   color: white;
   transform: scale(1.05);
+}
+
+.grid-option:hover:active {
+  transform: scale(0.98);
 }
 
 .grid-option:nth-child(1):hover {

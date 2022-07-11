@@ -143,12 +143,14 @@ describe("The App", () => {
     expect(playAgainContainer.style.display).toBe("flex");
   });
 
-  test("should hide the biard and bring you back to the grid options", () => {
+  test("should hide the board and bring you back to the grid options when you click the playAgainButton", () => {
     render(<App />);
 
     let allImages = screen.getAllByRole("img", { hidden: true });
     const playAgainButton = screen.getByText(/play again/i);
+    const boardContainer = screen.getByTestId("board-div");
 
+    expect(boardContainer).toBeInTheDocument();
     allImages.forEach((image) => expect(image.style.display).toBe("block"));
 
     act(() => {
@@ -157,6 +159,7 @@ describe("The App", () => {
 
     const gridContainer = screen.getByTestId("grid-options-container");
 
+    expect(boardContainer).not.toBeInTheDocument();
     expect(gridContainer).toBeInTheDocument();
   });
 });

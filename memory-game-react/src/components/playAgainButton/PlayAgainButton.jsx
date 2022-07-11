@@ -4,18 +4,16 @@ import "../../styles/playAgainButton.css";
 
 const PlayAgainButton = () => {
   const dispatch = useDispatch();
-  const unmatchedCards = useSelector((state) => {
+  const unmatchedCardsCount = useSelector((state) => {
     if (Object.keys(state.cards).length > 0) {
-      return state.cards.flat().filter((card) => !card.matched);
+      return state.cards.flat().filter((card) => !card.matched).length;
     }
-
-    return [null];
   });
 
   return (
     <div
       className="play-again-container"
-      style={{ display: unmatchedCards.length === 0 ? "flex" : "none" }}
+      style={{ display: unmatchedCardsCount === 0 ? "flex" : "none" }}
       data-testid="play-again-btn-container"
     >
       <button

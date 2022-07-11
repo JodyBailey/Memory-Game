@@ -1,7 +1,7 @@
 .board-container {
   width: max-content;
   height: max-content;
-  border: 1rem solid black;
+  border: 0.5rem solid black;
   background-image: linear-gradient(
     to right,
     rgb(87, 170, 79),
