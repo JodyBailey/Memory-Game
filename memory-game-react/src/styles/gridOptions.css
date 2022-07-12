@@ -1,3 +1,10 @@
+:root {
+  --grid-clr-green: rgb(87, 170, 79);
+  --grid-clr-blue: rgb(0, 112, 240);
+  --grid-clr-red: rgb(224, 63, 63);
+  --grid-clr-orange: rgb(255, 153, 0);
+}
+
 .grid-options-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -23,19 +30,19 @@
 }
 
 .grid-option:nth-child(1) {
-  color: rgb(87, 170, 79);
+  color: var(--grid-clr-green);
 }
 
 .grid-option:nth-child(2) {
-  color: rgb(0, 112, 240);
+  color: var(--grid-clr-blue);
 }
 
 .grid-option:nth-child(3) {
-  color: rgb(224, 63, 63);
+  color: var(--grid-clr-red);
 }
 
 .grid-option:nth-child(4) {
-  color: rgb(255, 153, 0);
+  color: var(--grid-clr-orange);
 }
 
 .grid-option:hover {
@@ -49,19 +56,19 @@
 }
 
 .grid-option:nth-child(1):hover {
-  background-color: rgb(87, 170, 79);
+  background-color: var(--grid-clr-green);
 }
 
 .grid-option:nth-child(2):hover {
-  background-color: rgb(0, 112, 240);
+  background-color: var(--grid-clr-blue);
 }
 
 .grid-option:nth-child(3):hover {
-  background-color: rgb(224, 63, 63);
+  background-color: var(--grid-clr-red);
 }
 
 .grid-option:nth-child(4):hover {
-  background-color: rgb(255, 153, 0);
+  background-color: var(--grid-clr-orange);
 }
 
 .size-heading {

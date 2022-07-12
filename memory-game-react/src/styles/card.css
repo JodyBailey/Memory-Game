@@ -6,6 +6,7 @@
   background-color: rgba(247, 247, 247, 0.925);
   width: 7.1rem;
   height: 7.1rem;
+  transition: transform 100ms;
 }
 
 .card:hover {
