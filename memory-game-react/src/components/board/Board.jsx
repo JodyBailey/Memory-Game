@@ -8,8 +8,16 @@ const Board = () => {
     return state.cards;
   });
 
+  const cardsPerRow = newRows[0].length;
+
   return (
-    <div className="board-container" data-testid="board-div">
+    <div
+      className="board-container"
+      data-testid="board-div"
+      data-size={
+        cardsPerRow === 2 ? "small" : cardsPerRow === 3 ? "medium" : "large"
+      }
+    >
       {newRows.map((row) => (
         <Row key={uuidv4()} rowCards={row} />
       ))}
