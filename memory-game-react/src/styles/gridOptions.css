@@ -1,0 +1,76 @@
+:root {
+  --grid-clr-green: rgb(87, 170, 79);
+  --grid-clr-blue: rgb(0, 112, 240);
+  --grid-clr-red: rgb(224, 63, 63);
+  --grid-clr-orange: rgb(255, 153, 0);
+}
+
+.grid-options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 2px solid rgb(36, 36, 36);
+  max-width: 30rem;
+  padding: 2rem;
+  margin: 1rem auto;
+  justify-content: center;
+  gap: 1rem;
+  background-color: rgb(231, 229, 229);
+  border-radius: 10px;
+}
+
+.grid-option {
+  text-align: center;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: white;
+  transition: 150ms ease-in-out;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.grid-option:nth-child(1) {
+  color: var(--grid-clr-green);
+}
+
+.grid-option:nth-child(2) {
+  color: var(--grid-clr-blue);
+}
+
+.grid-option:nth-child(3) {
+  color: var(--grid-clr-red);
+}
+
+.grid-option:nth-child(4) {
+  color: var(--grid-clr-orange);
+}
+
+.grid-option:hover {
+  cursor: pointer;
+  color: white;
+  transform: scale(1.05);
+}
+
+.grid-option:hover:active {
+  transform: scale(0.98);
+}
+
+.grid-option:nth-child(1):hover {
+  background-color: var(--grid-clr-green);
+}
+
+.grid-option:nth-child(2):hover {
+  background-color: var(--grid-clr-blue);
+}
+
+.grid-option:nth-child(3):hover {
+  background-color: var(--grid-clr-red);
+}
+
+.grid-option:nth-child(4):hover {
+  background-color: var(--grid-clr-orange);
+}
+
+.size-heading {
+  text-align: center;
+  font-size: 2rem;
+}

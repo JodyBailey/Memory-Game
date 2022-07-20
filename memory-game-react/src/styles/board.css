@@ -1,11 +1,11 @@
 .board-container {
   width: max-content;
   height: max-content;
-  border: 1rem solid black;
+  border: 0.5rem solid black;
   background-image: linear-gradient(
-    to bottom,
-    rgb(100, 112, 240),
-    rgba(0, 0, 0, 0.842)
+    to right,
+    rgb(87, 170, 79),
+    rgb(0, 112, 240)
   );
   margin: auto;
 }

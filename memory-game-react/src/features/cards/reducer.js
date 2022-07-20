@@ -1,10 +1,8 @@
 import { cardTypes } from "./types";
-import { generateImagesRows, images } from "./selectors";
+import { generateImagesRows } from "./selectors";
 import clone from "clone";
 
-const initialState = generateImagesRows(12, 4, images);
-
-const cardReducer = (state = initialState, action) => {
+const cardReducer = (state = {}, action) => {
   switch (action.type) {
     case cardTypes.SHUFFLE_CARDS: {
       return generateImagesRows(

@@ -3,18 +3,30 @@ import App from "./App";
 import { render, screen } from "./test-utils";
 
 describe("The App", () => {
-  test("should contain 3 rows, 12 image cards, a board container and a play again button", () => {
+  test("should initially start with the grid container with four grid options", () => {
     render(<App />);
 
-    const rowDivContainers = screen.getAllByTestId("row-div");
-    const boardDivContainer = screen.getByTestId("board-div");
-    const playAgainButton = screen.getByText(/play again/i);
-    const imageElements = screen.getAllByRole("img", { hidden: true });
+    const gridContainer = screen.getByTestId("grid-options-container");
 
-    expect(boardDivContainer).toBeInTheDocument();
-    expect(playAgainButton).toBeInTheDocument();
-    expect(rowDivContainers.length).toBe(3);
-    expect(imageElements.length).toBe(12);
+    expect(gridContainer).toBeInTheDocument();
+    expect(gridContainer.childElementCount).toBe(4);
+  });
+
+  test("should load a 4x3 board if you click the 4x3 grid option", () => {
+    render(<App />);
+
+    const gridContainer = screen.getByTestId("grid-options-container");
+    const fourByThreeOption = gridContainer.lastChild;
+
+    expect(fourByThreeOption).toBeInTheDocument();
+
+    act(() => {
+      fourByThreeOption.click();
+    });
+
+    const boardContainer = screen.getByTestId("board-div");
+    expect(boardContainer).toBeInTheDocument();
+    expect(boardContainer.childElementCount).toBe(3);
   });
 
   test("should display two images if you click on two cards and then keep them displayed if they are the same", () => {
@@ -131,26 +143,23 @@ describe("The App", () => {
     expect(playAgainContainer.style.display).toBe("flex");
   });
 
-  test("should reset the game when the play again button is clicked", () => {
+  test("should hide the board and bring you back to the grid options when you click the playAgainButton", () => {
     render(<App />);
 
-    let allImages;
+    let allImages = screen.getAllByRole("img", { hidden: true });
     const playAgainButton = screen.getByText(/play again/i);
+    const boardContainer = screen.getByTestId("board-div");
 
-    const updateElements = () => {
-      allImages = screen.getAllByRole("img", { hidden: true });
-    };
-
-    updateElements();
-
+    expect(boardContainer).toBeInTheDocument();
     allImages.forEach((image) => expect(image.style.display).toBe("block"));
 
     act(() => {
       playAgainButton.click();
     });
 
-    updateElements();
+    const gridContainer = screen.getByTestId("grid-options-container");
 
-    allImages.forEach((image) => expect(image.style.display).toBe("none"));
+    expect(boardContainer).not.toBeInTheDocument();
+    expect(gridContainer).toBeInTheDocument();
   });
 });

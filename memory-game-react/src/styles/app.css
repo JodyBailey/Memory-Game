@@ -1,0 +1,41 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+@media (max-width: 550px) {
+  .board-container[data-size="large"] > .row > .card {
+    width: 5.1rem;
+    height: 5.1rem;
+    margin: 0.2rem;
+  }
+
+  .board-container[data-size="large"] > .row > .card > img {
+    width: 4.1rem;
+    height: 4.1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .board-container[data-size="large"] > .row > .card {
+    width: 3.3rem;
+    height: 3.3rem;
+    margin: 0.1rem;
+  }
+
+  .board-container[data-size="large"] > .row > .card > img {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .play-again-btn {
+    width: 7rem;
+    border: 2px solid black;
+    font-size: 1rem;
+  }
+
+  .play-again-container {
+    display: flex;
+    justify-content: center;
+    margin: 0.8rem;
+  }
+}
