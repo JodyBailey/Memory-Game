@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8f2e0c2.css",
-    "main.js": "/static/js/main.96e684de.js",
-    "static/media/python.png": "/static/media/python.dc906e9aa21b2a930657.png",
-    "static/media/redux.png": "/static/media/redux.bda43b4ae4769696dd4a.png",
-    "static/media/c++logo.png": "/static/media/c++logo.42a9d6be90c98ed7ae9e.png",
-    "static/media/docker.png": "/static/media/docker.68f6fe73581de6ec9ca1.png",
-    "static/media/angular.png": "/static/media/angular.d6a7fec168059833e043.png",
-    "static/media/mongodb.png": "/static/media/mongodb.9d61b0174acd142478d8.png",
-    "index.html": "/index.html",
-    "main.e8f2e0c2.css.map": "/static/css/main.e8f2e0c2.css.map",
-    "main.96e684de.js.map": "/static/js/main.96e684de.js.map"
+    "main.css": "/Memory-Game/static/css/main.e8f2e0c2.css",
+    "main.js": "/Memory-Game/static/js/main.f050a893.js",
+    "static/media/python.png": "/Memory-Game/static/media/python.dc906e9aa21b2a930657.png",
+    "static/media/redux.png": "/Memory-Game/static/media/redux.bda43b4ae4769696dd4a.png",
+    "static/media/c++logo.png": "/Memory-Game/static/media/c++logo.42a9d6be90c98ed7ae9e.png",
+    "static/media/docker.png": "/Memory-Game/static/media/docker.68f6fe73581de6ec9ca1.png",
+    "static/media/angular.png": "/Memory-Game/static/media/angular.d6a7fec168059833e043.png",
+    "static/media/mongodb.png": "/Memory-Game/static/media/mongodb.9d61b0174acd142478d8.png",
+    "index.html": "/Memory-Game/index.html",
+    "main.e8f2e0c2.css.map": "/Memory-Game/static/css/main.e8f2e0c2.css.map",
+    "main.f050a893.js.map": "/Memory-Game/static/js/main.f050a893.js.map"
   },
   "entrypoints": [
     "static/css/main.e8f2e0c2.css",
-    "static/js/main.96e684de.js"
+    "static/js/main.f050a893.js"
   ]
 }

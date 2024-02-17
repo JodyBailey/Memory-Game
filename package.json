@@ -25,6 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://jodybailey.github.io/Memory-Game/",
   "eslintConfig": {
     "extends": [
       "react-app",
