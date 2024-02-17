@@ -1,5 +1,4 @@
-Memory game web app (222)
-For raw project instructions see: http://syllabus.africacode.net/projects/memory-game/part-1/
+Memory game web app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
